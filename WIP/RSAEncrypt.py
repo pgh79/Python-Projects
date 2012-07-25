@@ -6,7 +6,7 @@ v = s.readlines()
 n = int(v[0])
 e = float(v[1].rstrip())
 m = input("Please enter a number to encrypt: ")
-c = long(m**e)
+c = int(m**e)
 print "Your encrypted ciphertext is: ", c
 s.close
 d = open('ciphertext.txt', 'w')

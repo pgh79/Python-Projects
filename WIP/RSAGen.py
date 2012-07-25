@@ -7,12 +7,12 @@ def isPrime(n):
             return False
     return True
 print "Welcome to RSA Key Generator"
-p = random.randint(1, 10)
+p = random.randint(5, 20)
 while isPrime(p)!=True:
-    p = random.randint(1, 10)
-q = random.randint(1, 10)
+    p = random.randint(5, 20)
+q = random.randint(5, 20)
 while isPrime(q)!=True:
-    q = random.randint(1, 10)
+    q = random.randint(5, 20)
 n = p*q #n is the modulus for the public and private keys
 #Calculate the Euler Totient of n
 x = (p-1)*(q-1)
