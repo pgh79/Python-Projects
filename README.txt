@@ -1,1 +1,1 @@
-Just a place for me to put all my SGS Computer Club work/submissions
+Just a place for me to put all my Computer Club work/submissions
