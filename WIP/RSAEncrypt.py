@@ -1,7 +1,13 @@
 # RSA Encryptor -blakedut2
 print "Welcome to the RSA Message Encryptor (Integer Only)"
-n = input("Please enter the first block of the recipient's key: ")
-e = input("Please enter the second block of the recipient's key: ")
+print "Accessing keys.txt..."
+s = open('keys.txt', 'r')
+v = s.readlines()
+n = int(v[0])
+e = float(v[1].rstrip())
 m = input("Please enter a number to encrypt: ")
-c = m**e
+c = long(m**e)
 print "Your encrypted ciphertext is: ", c
+s.close
+d = open('ciphertext.txt', 'w')
+d.write('%s \n'%c)
