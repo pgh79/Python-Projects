@@ -12,10 +12,13 @@ Place this file inside the directory that contains your challenge solution. Then
 import sys
 class scorer:
     def score(file):
+        # Set the score to zero and open the file
         s = 0
         f = open(file, 'r')
+        # Check each individual line
         for line in f.readlines():
             l = line.strip()
+            # If the line stars with a comment, do nothing, else score it
             if l.startswith("#"):
                 pass
             else:
@@ -26,6 +29,7 @@ class scorer:
                         s += 3
         return s
     def name(file):
+        # Set the Name to blank
         n = ""
         f = open(file, 'r')
         linenum = 0
