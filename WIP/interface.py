@@ -1,7 +1,7 @@
 #Scorer Interface
-from scorer import *
+import scorer
 import sys
 script = sys.argv[1]
-score = score(script)
-name = str(name(script))
+score = scorer.score(script)
+name = scorer.name(script)
 print "Challenge Score for " + name + " (Lower is Better): ", score
