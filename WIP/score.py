@@ -1,4 +1,16 @@
-#Classing score
+''' 
+
+Code Challenge Scorer: Lower is Better
+-> Whitespace (' ') is ignored
+-> Tabs are ignored
+-> Newlines count for THREE POINTS (v. Bad)
+
+How to Use:
+Place this file inside the directory that contains your challenge solution. Then run python scorer.py <solution.py> where solution.py is what you named your challenge solution.
+
+Credits: Pocon, Peterarenot, Blakedut2
+
+'''
 import os
 import sys
 import glob
