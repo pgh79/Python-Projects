@@ -64,14 +64,15 @@ class Leaderboard:
     def sort(self):
         self.sorted_dict = sorted(self.dict.iteritems(), key=operator.itemgetter(0))
     def output(self):
-        f = open('Leaderboard.txt', 'w')
+        f = open('Leaderboard.md', 'w')
         linenum = 0
         for item in self.sorted_dict:
             linenum += 1
             item = str(item)
             item = re.sub(r'[^\w\s]', '', item)
             if linenum == 1:
-                f.write(item)
+                f.write('Leaderboard')
+                f.write('\n===========')
             else:
                 f.write('\n' + item)
 if __name__ == '__main__':
