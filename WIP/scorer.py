@@ -8,6 +8,11 @@ Code Challenge Scorer: Lower is Better
 How to Use:
 Place this file inside the directory that contains your challenge solution. Then run python scorer.py <solution.py> where solution.py is what you named your challenge solution.
 
+Advanced Scorer Credits:
+Basic scorer - Patrick O'Connell
+Name extraction method - Peter Arnott
+Comment ignoring code and restructuring - Blake Dutton
+
 '''
 import sys
 def score(file):
