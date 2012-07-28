@@ -16,14 +16,13 @@ class Scorer:
         for line in f.readlines():
             l = line.strip()
             # If the line stars with a comment, do nothing, else score it
-            if l.startswith("#"):
-                pass
-            else:
-                for char in line:
-                    if char != ' ' and char != '\t' and char != '\n':
-                        self.s += 1
-                    if char == '\n':
-                        self.s += 3
+            if not l.startswith("#"):
+                if not "input" in l:
+                    for char in line:
+                        if char != ' ' and char != '\t' and char != '\n':
+                            self.s += 1
+                        if char == '\n':
+                            self.s += 3
     def setname(self,file):
         # Set the Name to blank
         self.n = ""
