@@ -21,64 +21,50 @@ class Scorer:
         self.setscore(file)
         self.setname(file)
     def setscore(self,file):
-        # Set the score to zero and open the file
-        self.s = 0
+        self.score = 0
         f = open(file, 'r')
-        # Check each individual line
         for line in f.readlines():
             l = line.strip()
-            # If the line stars with a comment, do nothing, else score it
             if not l.startswith("#"):
                 if not "input" in l:
                     for char in line:
                         if char != ' ' and char != '\t' and char != '\n':
-                            self.s += 1
+                            self.score += 1
                         if char == '\n':
-                            self.s += 3
+                            pass
     def setname(self,file):
-        # Set the Name to blank
-        self.n = ""
         f = open(file, 'r')
         linenum = 0
         for line in f.readlines():
             l = line.strip()
             linenum += 1
-            # Check for comment, if line starts with comment then ignore.
             if linenum == 1:
                 if l.startswith("#"):
-                    # Ignore the hash and save the name
-                    self.n = l[1:]
+                    self.name = l[1:]
                 else:
-                    # No name means its invalid. Return an error message.
-                    self.n = f.name
+                    self.name = f.name
 class Leaderboard:
     def __init__(self, path):
-        self.dict = {}
+        self.scorelist = []
         for infile in glob.glob( os.path.join(path, '*.py') ):
-            infile = str(infile)
-            score = Scorer(infile).s
-            name = Scorer(infile).n
-            self.dict[score] = name
-            print name + ': ',score
-            self.sort()
+            self.scorelist += [Scorer(infile)]
+        self.sort()
     def sort(self):
-        self.sorted_dict = sorted(self.dict.iteritems(), key=operator.itemgetter(0))
+        self.sorted = sorted(self.scorelist, key=lambda score: score.score)
     def output(self):
         f = open('Leaderboard.md', 'w')
         linenum = 0
-        for item in self.sorted_dict:
+        for item in self.scorelist:
             linenum += 1
-            item = str(item)
-            item = re.sub(r'[^\w\s]', '', item)
             if linenum == 1:
                 f.write('Leaderboard')
                 f.write('\n===========')
             else:
-                f.write('\n' + item)
+                f.write('\n' + str(item.score) + ": " + item.name)
 if __name__ == '__main__':
     p = sys.argv[1]
     if ".py" in p:
-        print Scorer(p).n + ': ', Scorer(p).s
+        print Scorer(p).name + ': ', Scorer(p).score
     else:
         board = Leaderboard(p)
         board.output()
