@@ -227,6 +227,7 @@ class CLI(cmd.Cmd):
 		self.c = CarPark()
 		cmd.Cmd.__init__(self)
 		self.prompt = "Enter a command: "
+		
 	def do_map(self, arg):
 		self.c.printgrid()
 		
@@ -267,8 +268,7 @@ class CLI(cmd.Cmd):
 			print "\nNo valid result found.\n"
 		else:
 			self.c.lookup(l[0])
-		
-		
+
 	def help_lookup(self):
 		print "\nsyntax: lookup <number plate/id>"
 		print "Searches the vehicle database to find a certain vehicle parked in the complex.\nDisplays all relevant information on discovery.\n"
