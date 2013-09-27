@@ -1,1 +1,1 @@
-Just a place for me to put all my Computer Club work/submissions
+Storage hub for all Python Projects
