@@ -1,3 +1,18 @@
+'''
+My program for the final assessment question.
+The way I interpreted the question was to create a program which simulates 
+the back-end of a car-park administration system.  This involves manually entering
+each vehicle that parks, when it leaves, payment systems etc...  You can also
+list the currently parked vehicles, dump a history list of all vehicles
+that have parked here and a statistics page which dumps free spots, taken spots
+and total revenue.  The code isn't commented, as it is fairly basic, but I tried to keep
+it nice and clean.
+
+As a bit of review, the program would be far more functional if it used a persistent
+MySQL database to store all information (and it would be easy to adapt the system).
+The system also needs to implemented a background thread to keep track of the time
+so that fines could be issued more efficiently than requiring a refresh on car exit.
+'''
 from itertools import product
 import sys, cmd, string, pprint, threading, time, datetime, os
 class Car():
